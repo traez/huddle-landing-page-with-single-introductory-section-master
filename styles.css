@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital@0;1&family=Poppins&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital@0;1&family=Open+Sans:ital@0;1&display=swap');
+
+/*
+My 11th attempted challenge on frontendmentor.io (HTML and CSS)
+
+What I learned
+1) Getting more familiar implementing multiple backgrounds
+2) How to pay attention/build for specified width
+3) Enabling responsive using aspect-ratio and sub-container width
+4) Used gap property to manipulate spacing in Flexbox
+5) Using grid-template-areas to eliminate the mathematics of grid-areas
+
+Continued development/Short falls:
+
+1) Forgot to implement "hover states". My apologies.
+2) Having done 11 CSS-HTML projects, I feel comfortable manipulating CSS usefully. 
+Truly I was barely scratching the surface previously. 
+Now time to move on to Javascript review and projects.
+*/
+:root {
+    --violet: hsl(257, 40%, 49%);  /*Primary*/
+    --soft-magenta: hsl(300, 69%, 71%);  /*Primary*/
+      }
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+    utline: 1px solid black;
+}
+html{
+    display: flex;
+    flex-flow: column;
+    justify-content: center; 
+    align-items: center;
+    height:100%;
+    width: 100%;
+    background: url(./images/logo.svg), url(./images/bg-mobile.svg), var(--violet);
+    background-repeat: no-repeat, no-repeat;
+    background-size:35%,auto;
+    background-position: 2rem 0.5rem, 0 0;
+    font-family: "Poppins","Open Sans";
+    }
+main{
+        display:flex;
+        flex-flow:column;
+        justify-content: center; 
+        align-items: center;
+        width:20rem;
+        height: auto;
+        gap:0.5rem;
+    }
+header{
+    width:100%;
+}
+.illustration-mockups{
+    max-width:100%;
+    max-height:100%;
+}
+section{
+    text-align: center; 
+    display:flex;
+    flex-flow:column;
+    justify-content: center; 
+    align-items: center;
+    gap:0.7rem;
+}
+section h1{
+    font-size: 1.6rem;
+    color:white;
+}
+section p{
+    color:white;
+    font-size: 1rem;
+}
+section button{
+    color:var(--violet);
+    padding: 0.5rem 5rem;
+    border-radius:1rem;
+    border: 0;
+    box-shadow: 0.1rem 0.1rem 0.5rem black;
+}
+aside { 
+    font-size: 0.7rem;
+}
+footer{
+    display: flex;
+    flex-flow: row;
+    justify-content: center; 
+    max-width:100%;
+    max-height:auto;
+    gap:0.5rem;
+}
+footer img{
+    width:10%;
+    border-radius:50%;
+    aspect-ratio: 1/1;
+    border: 1px solid white;
+    padding:0.5rem;
+}
+/* Media Query starts below */
+@media (min-width: 37em) {
+*{
+       utline: 1px solid black;
+    }
+html{
+    background: url(./images/logo.svg), url(./images/bg-desktop.svg), var(--violet);
+    background-repeat: no-repeat, no-repeat;
+    background-size:12%,auto;
+    background-position: 10rem 1rem, 0 0;
+
+    }
+main{
+    display:grid;
+    grid-template: 5fr 1fr/6fr 5fr;
+    grid-template-areas:
+    "pic word"
+    "empty ico";
+    width:80%;
+    height: auto;
+    margin: auto auto;
+    column-gap: 3rem;
+}
+header {
+    grid-area: pic;
+  }
+section{
+    grid-area: word;
+    align-items: flex-start; 
+    gap:1rem;
+    text-align: left;
+  }
+section h1{
+    font-size: 2.5rem;
+}
+section p{
+    font-size: 1.1rem;
+}
+section button{
+    border-radius:1.5rem;
+    padding: 1rem 5rem;
+    font-size: 1.2rem;
+}
+aside { 
+    font-size: 0.8rem;
+}
+footer{
+    grid-area: ico; 
+    justify-content: flex-end;  
+}
+footer img{
+    width:8%;
+}
+}
